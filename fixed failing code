@@ -24,3 +24,9 @@ jobs:
       - run: npm install
 
       - run: npm run test
+
+- name: Deploy to Heroku
+  env:
+    HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+  run: |
+    git push https://heroku:$HEROKU_API_KEY@heroku.com/<ySalesforce-Platformp-heroku>.git main
